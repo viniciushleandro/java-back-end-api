@@ -1,0 +1,17 @@
+user-api/HELP.md
+user-api/target/
+user-api/!.mvn/wrapper/maven-wrapper.jar
+user-api/!**/src/main/**/target/
+user-api/!**/src/test/**/target/
+
+user-api/.apt_generated
+user-api/.classpath
+user-api/.factorypath
+user-api/.project
+user-api/.settings
+user-api/mvnw
+user-api/mvnw.cmd
+
+*.iml
+
+/.metadata/
