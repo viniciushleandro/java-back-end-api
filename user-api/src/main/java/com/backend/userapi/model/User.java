@@ -1,11 +1,19 @@
-package com.backend.userapi.dto;
+package com.backend.userapi.model;
 
 import java.util.Date;
 
-import com.backend.userapi.model.User;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class UserDTO {
+import com.backend.userapi.dto.UserDTO;
 
+@Entity
+public class User {
+
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	private String name;
 	private String cpf;
 	private String address;
@@ -13,6 +21,12 @@ public class UserDTO {
 	private String telphone;
 	private Date dateRegister;
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -50,15 +64,15 @@ public class UserDTO {
 		this.dateRegister = dateRegister;
 	}
 	
-	public static UserDTO convert(User user) {
-		UserDTO userDTO = new UserDTO();
-		userDTO.setName(user.getName());
-		userDTO.setCpf(user.getCpf());
-		userDTO.setAddress(user.getAddress());
-		userDTO.setEmail(user.getEmail());
-		userDTO.setTelphone(user.getTelphone());
-		userDTO.setDateRegister(user.getDateRegister());
+	public static User convert(UserDTO userDTO) {
+		User user = new User();
+		user.setName(userDTO.getName());
+		user.setCpf(userDTO.getCpf());
+		user.setAddress(userDTO.getAddress());
+		user.setEmail(userDTO.getEmail());
+		user.setTelphone(userDTO.getTelphone());
+		user.setDateRegister(userDTO.getDateRegister());
 		
-		return userDTO;
+		return user;
 	}
 }
